@@ -49,6 +49,12 @@ if (event.target.type == "submit" ){
     event.target.classList.add("chosen");
     event.target.disabled = true;
     const letterFound = checkLetter(event.target);
+    if(letterFound === null) {
+        missed++;
+        const trie = document.querySelector(".tries");
+        const triesParent = trie.parentElement;
+        triesParent.removeChild(trie);
+    }
 }
 
 });
