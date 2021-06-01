@@ -56,5 +56,31 @@ if (event.target.type == "submit" ){
         triesParent.removeChild(trie);
     }
 }
-
+checkWin();
 });
+
+function checkWin() {
+    const showNo = document.querySelectorAll(".show").length;
+    const letterNo = document.querySelectorAll(".letter").length;
+    if (showNo === letterNo) {
+        showWinScreen();
+    } else if (missed >= 5) {
+        showLoseScreen()
+    }
+}
+
+function showWinScreen() {
+    const overlay = document.getElementById("overlay");
+    overlay.classList.add("win");
+    const h2 = overlay.firstElementChild;
+    h2.textContent = "you won the game";
+    overlay.style.display = "flex";
+}
+
+function showLoseScreen() {
+    const overlay = document.getElementById("overlay");
+    overlay.classList.add("lose");
+    const h2 = overlay.firstElementChild;
+    h2.textContent = "you Lose the game, try again";
+    overlay.style.display = "flex";
+}
