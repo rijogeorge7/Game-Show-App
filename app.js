@@ -28,3 +28,15 @@ function addPhraseToDisplay(arr) {
         phrase.appendChild(list);
     }
 }
+
+function checkLetter(btn) {
+    const letter = btn.textContent;
+    const letterLists = document.querySelectorAll(".letter");
+    for (let i=0; i<letterLists.length; i++) {
+        if(letterLists[i].textContent === letter) {
+            letterLists[i].classList.add("show");
+            return letter;
+        }
+    }
+    return null;
+}
