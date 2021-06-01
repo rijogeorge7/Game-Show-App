@@ -32,11 +32,23 @@ function addPhraseToDisplay(arr) {
 function checkLetter(btn) {
     const letter = btn.textContent;
     const letterLists = document.querySelectorAll(".letter");
+    let matchingLetter = null;
     for (let i=0; i<letterLists.length; i++) {
         if(letterLists[i].textContent === letter) {
             letterLists[i].classList.add("show");
-            return letter;
+            matchingLetter = letter;
         }
     }
-    return null;
+    return matchingLetter;
 }
+
+document.getElementById("qwerty").addEventListener("click", (event) => {
+    console.log(event.target.type);
+if (event.target.type == "submit" ){
+    console.log("qwerty button clicked");
+    event.target.classList.add("chosen");
+    event.target.disabled = true;
+    const letterFound = checkLetter(event.target);
+}
+
+});
