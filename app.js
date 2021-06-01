@@ -5,7 +5,9 @@ const resetButton = document.querySelector(".btn__reset");
 const phrases = ["like you","love you","prolong","life is not easy","life is wonderful"];
 
 resetButton.addEventListener("click", (event) => {
-    console.log(getRandomPhraseAsArray(phrases));
+    document.getElementById("overlay").style.display = "none";
+    const phraseArray = getRandomPhraseAsArray(phrases);
+    addPhraseToDisplay(phraseArray); 
 });
 
 function getRandomPhraseAsArray(arr){
@@ -13,3 +15,16 @@ function getRandomPhraseAsArray(arr){
     const randomString = arr[randomIndex];
     return Array.from(randomString);
 } 
+
+function addPhraseToDisplay(arr) {
+    for (let i=0; i < arr.length; i++) {
+        
+        let list = document.createElement("li");
+        list.appendChild(document.createTextNode(arr[i]));
+        if(arr[i] != " "){
+            list.classList.add("letter");
+            console.log(arr[i]);
+        }
+        phrase.appendChild(list);
+    }
+}
