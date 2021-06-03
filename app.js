@@ -14,10 +14,6 @@ resetButton.addEventListener("click", (event) => {
     addPhraseToDisplay(phraseArray); 
 });
 
-function startGame() {
-    
-}
-
 function getRandomPhraseAsArray(arr){
     const randomIndex = Math.floor(Math.random() * arr.length);
     const randomString = arr[randomIndex];
@@ -121,7 +117,6 @@ function showWinScreen() {
     overlay.classList.add("win");
     const h2 = overlay.firstElementChild;
     h2.textContent = "you won the game";
-    //const resetButton = overlay.querySelector("btn__reset");
     resetButton.textContent = "Reset Game"
     overlay.style.display = "flex";
 }
@@ -132,7 +127,6 @@ function showLoseScreen() {
     overlay.classList.add("lose");
     const h2 = overlay.firstElementChild;
     h2.textContent = "you Lose the game, try again";
-    //const resetButton = overlay.querySelector("btn_reset");
     resetButton.textContent = "Reset Game"
     overlay.style.display = "flex";
 }
